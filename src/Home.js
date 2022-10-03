@@ -3,11 +3,9 @@ import { Link } from "react-router-dom";
 
 function Home() {
 
-    const [drinks, setDrinks] = useState([])
-    const [searchQuery, setSearchQuery] = useState("")
-    const [showDetails, setShowDetails] = useState([])
-
-    
+    const [drinks, setDrinks] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+    const [showDetails, setShowDetails] = useState([]);
 
     function handleSubmit(e){
         e.preventDefault();
@@ -20,10 +18,23 @@ function Home() {
     function getRandom(){
       fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
       .then(r => r.json())
-      .then(drink => {
-        setDrinks(drink.drinks)
-        setShowDetails(drink.drinks[0])
+      .then(d => {
+        setDrinks(d.drinks)
+        setShowDetails(d.drinks[0])
       })
+    }
+
+    function addToFavorites(drinkToAdd){
+      fetch('http://localhost:3001/favorites', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(drinkToAdd),
+        })
+          .then((response) => response.json())
+          .then((data) => console.log('Success:', data))
+          .catch((error) => console.error('Error:', error));
     }
 
     return (
@@ -38,7 +49,9 @@ function Home() {
           <div>
             <ul>
                 {drinks.map((drink, index) => (
-                    <li key={index}><p onClick={() => showDetails == drink ? setShowDetails([]) : setShowDetails(drink)}>{drink.strDrink}</p>
+                    <li key={index}>{drink.strDrink}
+                    <button onClick={() => showDetails == drink ? setShowDetails([]) : setShowDetails(drink)}>{showDetails == drink? "Hide Details" : "Details"}</button>
+                    <button onClick={() => addToFavorites(drink)}>Add to Favorites</button>
                         {showDetails == drink ? 
                         <div>
                             <p>{drink.strInstructions}</p>
