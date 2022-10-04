@@ -2,12 +2,13 @@ import { Routes, Route } from "react-router-dom";
 import Home from './Home';
 import Favorites from './Favorites';
 import './App.css';
+import Nav from "./Nav";
 
 function App() {
 
   return (
     <div className="App">
-      <h1>Welcome to my drink app!</h1>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="favorites" element={<Favorites />} />
