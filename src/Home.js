@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Home() {
 
@@ -14,7 +14,7 @@ function Home() {
         setSearchQuery("");
     }
 
-    function getRandom(){
+    function getRandom(e){
       fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
       .then(r => r.json())
       .then(d => {
@@ -39,12 +39,23 @@ function Home() {
     return (
       <>
         <main>
-          <h2>Search for a drink</h2>
-          <form onSubmit={handleSubmit}>
-            <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
-            <button>Search</button>
-          </form>
-            <button onClick={getRandom}>Get Random</button>
+        <form onSubmit={handleSubmit}>
+          <div class="flex items-center p-6 space-x-6 overflow-x-auto bg-white rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition duration-500">
+            <div class="flex bg-gray-100 p-4 w-72 space-x-4 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              <input type="text" class="bg-gray-100 outline-none" placeholder="Drink name or keyword..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}/>
+            </div>  
+            <div class="bg-gray-800 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
+              <button>Search</button>
+            </div>
+            <div class="bg-gray-800 py-3 px-5 text-white font-semibold rounded-lg hover:shadow-lg transition duration-3000 cursor-pointer">
+              <span onClick={getRandom}>Random</span>
+            </div>
+          </div>
+        </form>
+            
           <div>
             <ul>
                 {drinks.map((drink, index) => (
