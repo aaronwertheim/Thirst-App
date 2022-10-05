@@ -70,7 +70,7 @@ function Home() {
               {drinks.map((drink, index) => (
                 <li class="bg-gray-200 border rounded-lg border-gray-800 mb-5 p-1 flex flex-col shadow-md" key={index}>
                   <div class="font-bold">{drink.strDrink}</div>
-                  <div class="cursor-pointer underline hover:bg-white" onClick={() => showDetails == drink ? setShowDetails([]) : setShowDetails(drink)}>{showDetails == drink? "Hide Details" : "Details"}</div>
+                  <div class="cursor-pointer underline hover:bg-white" onClick={() => showDetails === drink ? setShowDetails([]) : setShowDetails(drink)}>{showDetails === drink? "Hide Details" : "Details"}</div>
                   <div class="cursor-pointer underline hover:bg-white" onClick={() => addToFavorites(drink)}>Add to Favorites</div>
                 </li>   
               ))}
