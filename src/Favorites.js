@@ -38,7 +38,7 @@ function Favorites() {
               <h2 class="text-2xl text-center underline font-bold">{showDetails.strDrink}</h2>
               <img src={showDetails.strDrinkThumb} alt="" class=" rounded-lg my-5 mx-auto shadow-2xl"/>
               <div class="flex flex-col md:flex-row lg:w-3/5 mx-auto"> 
-                <table class="shadow-xl">
+                <table class="shadow-xl bg-gray-200">
                   <tr class="border border-gray-800">
                     <td class="border border-gray-800 empty:hidden p-1">{showDetails.strIngredient1}</td>
                     <td class="border border-gray-800 empty:hidden p-1">{showDetails.strMeasure1}</td>
@@ -68,7 +68,7 @@ function Favorites() {
                     <td class="border border-gray-800 empty:hidden p-1">{showDetails.strMeasure7}</td>
                   </tr>
                 </table>
-                <p class="text-justify lg:w-2/3 mx-auto my-auto p-2 rounded-sm">{showDetails.strInstructions}</p>
+                <p class="text-justify  font-bold lg:w-2/3 mx-auto my-auto p-2 rounded-sm">{showDetails.strInstructions}</p>
               </div>   
             </div>
           </div>
