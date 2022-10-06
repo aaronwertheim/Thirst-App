@@ -9,7 +9,7 @@ function Home() {
 
 
     useEffect(() => {
-      fetch('http://localhost:3001/favorites')
+      fetch('https://favorite-drinks.herokuapp.com/favorites')
       .then(r => r.json())
       .then(favoritesArr => setFavoritesIds(favoritesArr.map(fav => fav.idDrink)))
     },[])
@@ -34,7 +34,7 @@ function Home() {
 
     function addToFavorites(drinkToAdd){
       if(favoritesIds.includes(drinkToAdd.idDrink)) return alert("This drink is already in your favorites.")
-      fetch('http://localhost:3001/favorites', {
+      fetch('https://favorite-drinks.herokuapp.com/favorites', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
