@@ -12,7 +12,7 @@ function Favorites() {
   },[])
 
   function handleDelete(id){
-    fetch('https://favorite-drinks.herokuapp.com/favorites' + id, {
+    fetch('https://favorite-drinks.herokuapp.com/favorites/' + id, {
       method: 'DELETE'
     }).then(setFavorites(favorites.filter(fav => fav.id !== id)))
     if(showDetails.id === id){
