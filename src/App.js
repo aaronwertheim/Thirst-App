@@ -10,8 +10,8 @@ function App() {
     <div className="App">
       <Nav />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="favorites" element={<Favorites />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

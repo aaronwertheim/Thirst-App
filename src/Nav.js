@@ -9,7 +9,7 @@ function Nav() {
                 </div>
                 <ul class="navbar-nav flex  pl-0 list-style-none mr-auto">
                     <li class="nav-item p-2">
-                        <Link class="nav-link text-white underline hover:text-gray-400" to="/">Home</Link>
+                        <Link class="nav-link text-white underline hover:text-gray-400" to="/home">Home</Link>
                     </li>
                     <li class="nav-item p-2">
                         <Link class="nav-link text-white underline hover:text-gray-400" to="/favorites">Favorites</Link>
