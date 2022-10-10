@@ -6,13 +6,13 @@ function Favorites() {
   const [showDetails, setShowDetails] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3001/favorites')
+    fetch('https://favorite-drinks.herokuapp.com/favorites')
     .then(r => r.json())
     .then(d => setFavorites(d))
   },[])
 
   function handleDelete(id){
-    fetch('http://localhost:3001/favorites/' + id, {
+    fetch('https://favorite-drinks.herokuapp.com/favorites' + id, {
       method: 'DELETE'
     }).then(setFavorites(favorites.filter(fav => fav.id !== id)))
     if(showDetails.id === id){
