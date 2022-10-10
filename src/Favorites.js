@@ -6,13 +6,13 @@ function Favorites() {
   const [showDetails, setShowDetails] = useState([]);
 
   useEffect(() => {
-    fetch('https://favorite-drinks.herokuapp.com/favorites')
+    fetch('http://localhost:3001/favorites')
     .then(r => r.json())
     .then(d => setFavorites(d))
   },[])
 
   function handleDelete(id){
-    fetch('https://favorite-drinks.herokuapp.com/favorites/' + id, {
+    fetch('http://localhost:3001/favorites/' + id, {
       method: 'DELETE'
     }).then(setFavorites(favorites.filter(fav => fav.id !== id)))
     if(showDetails.id === id){
@@ -68,7 +68,7 @@ function Favorites() {
                     <td class="border border-gray-800 empty:hidden p-1">{showDetails.strMeasure7}</td>
                   </tr>
                 </table>
-                <p class="text-justify  font-bold lg:w-2/3 mx-auto my-auto p-2 rounded-sm">{showDetails.strInstructions}</p>
+                <p class="text-justify font-bold lg:w-2/3 mx-auto my-auto p-2 rounded-sm">{showDetails.strInstructions}</p>
               </div>   
             </div>
           </div>

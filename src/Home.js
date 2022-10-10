@@ -7,9 +7,8 @@ function Home() {
     const [showDetails, setShowDetails] = useState([]);
     const [favoritesIds, setFavoritesIds] = useState([]);
 
-
     useEffect(() => {
-      fetch('https://favorite-drinks.herokuapp.com/favorites')
+      fetch('https://localhost:3001/favorites')
       .then(r => r.json())
       .then(favoritesArr => setFavoritesIds(favoritesArr.map(fav => fav.idDrink)))
     },[])
@@ -24,7 +23,7 @@ function Home() {
     }
 
     function getRandom(e){
-      fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+      fetch('http://www.thecocktaildb.com/api/json/v1/1/random.php')
       .then(r => r.json())
       .then(d => {
         setDrinks(d.drinks)
@@ -34,7 +33,7 @@ function Home() {
 
     function addToFavorites(drinkToAdd){
       if(favoritesIds.includes(drinkToAdd.idDrink)) return alert("This drink is already in your favorites.")
-      fetch('https://favorite-drinks.herokuapp.com/favorites', {
+      fetch('http://localhost:3001/favorites', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -67,7 +66,7 @@ function Home() {
           </form>
           <div class="flex my-5">
             <ul class=" mx-2 mt-2 lg:w-1/5">
-              {drinks.map((drink, index) => (
+              {drinks?.map((drink, index) => (
                 <li class="bg-gray-200 border rounded-lg border-gray-800 mb-5 p-1 flex flex-col shadow-md" key={index}>
                   <div class="font-bold">{drink.strDrink}</div>
                   <div class="cursor-pointer underline hover:bg-white" onClick={() => showDetails === drink ? setShowDetails([]) : setShowDetails(drink)}>{showDetails === drink? "Hide Details" : "Details"}</div>
