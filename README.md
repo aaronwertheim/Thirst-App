@@ -1,70 +1,54 @@
-# Getting Started with Create React App
+# Thirst App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+React application utilizing TheCocktailDB API with JSON server.
+live frontend [_here_](https://thirst-app.herokuapp.com/)
 
-## Available Scripts
+## GitHub Repo
 
-In the project directory, you can run:
+[https://github.com/aaronwertheim/thirst-app](https://github.com/aaronwertheim/thirst-app)
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- NodeJS (v16), and npm
+- Heroku CLI
+- React 18.2.0
+- React-Router-Dom 6.4.1
+- Tailwindcss 3.1.8
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Backend API Docs
 
-### `npm test`
+[TheCocktailDB](https://www.thecocktaildb.com/api.php) - An open, crowd-sourced database of drinks and cocktails from around the world.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[JSON Server](https://favorite-drinks.herokuapp.com/)
 
-### `npm run build`
+## Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Clone repository
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**clone** the project repository from github: [https://github.com/aaronwertheim/thirst-app](https://github.com/aaronwertheim/thirst-app)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```console
+$ git clone https://github.com/aaronwertheim/thirst-app
+```
 
-### `npm run eject`
+### Start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`npm start`: run the app on
+  [http://localhost:3000](http://localhost:3000)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Select [`Search`] to view a list of drinks based on your input.
+2. Select [`Details`] to see a specific image, description, and recipe. You may also add the drink to the favorites section.
+3. Select [`Random`] to view random drink.
+4. Select [`Favorites`] to view a list off all favorited drinks. You may also view drink details, and remove the drink from the favorites section.
+5. Select [`Home`] to return to the main search menu.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Acknowledgements
 
-## Learn More
+This project based on:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [create-react-app](https://create-react-app.dev).
+- [react-router](https://reactrouter.com/en/v6.3.0/getting-started/tutorial)
+- [install tailwind](https://tailwindcss.com/docs/guides/create-react-app).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
