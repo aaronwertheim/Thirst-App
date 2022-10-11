@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import {DrinksContext} from './Contexts/DrinksContext';
 
 function Home() {
 
-    const [drinks, setDrinks] = useState([]);
+    
     const [searchQuery, setSearchQuery] = useState("");
     const [showDetails, setShowDetails] = useState([]);
     const [favoritesIds, setFavoritesIds] = useState([]);
+    const { drinks, setDrinks } = useContext(DrinksContext);
 
     useEffect(() => {
       fetch('https://favorite-drinks.herokuapp.com/favorites')
@@ -19,7 +21,7 @@ function Home() {
         .then(r => r.json())
         .then(drinksArray => setDrinks(drinksArray.drinks))
         setSearchQuery("");
-        setShowDetails([])
+        setShowDetails([]);
     }
 
     function getRandom(e){
