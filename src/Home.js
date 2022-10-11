@@ -41,9 +41,11 @@ function Home() {
           },
           body: JSON.stringify(drinkToAdd),
         })
-          .then((response) => response.json())
-          .then((data) => console.log('Success:', data))
-          .catch((error) => console.error('Error:', error));
+          .then(() => {
+            fetch('https://favorite-drinks.herokuapp.com/favorites')
+            .then(r => r.json())
+            .then(favoritesArr => setFavoritesIds(favoritesArr.map(fav => fav.idDrink)))
+          })
     }
 
     return (
@@ -71,7 +73,7 @@ function Home() {
                 <li class="bg-gray-200 border rounded-lg border-gray-800 mb-5 p-1 flex flex-col shadow-md" key={index}>
                   <div class="font-bold">{drink.strDrink}</div>
                   <div class="cursor-pointer underline hover:bg-white" onClick={() => showDetails === drink ? setShowDetails([]) : setShowDetails(drink)}>{showDetails === drink? "Hide Details" : "Details"}</div>
-                  <div class="cursor-pointer underline hover:bg-white" onClick={() => addToFavorites(drink)}>Add to Favorites</div>
+                  <div class="cursor-pointer hover:bg-white" onClick={() => addToFavorites(drink)}><span class="underline">Add to Favorites</span> <span class=" ">{ favoritesIds.includes(drink.idDrink) ? "✔️" : ""}</span> </div>
                 </li>   
               ))}
             </ul>
